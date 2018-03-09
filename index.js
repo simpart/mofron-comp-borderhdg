@@ -24,7 +24,7 @@ mofron.comp.BorderHdg = class extends Heading {
     initDomConts (prm) {
         try {
             super.initDomConts(prm);
-            this.target().style({
+            this.style({
                 'border-left'   : 'solid 10px',
                 'border-bottom' : 'solid 1px',
                 'padding-left'  : '10px'
@@ -43,6 +43,25 @@ mofron.comp.BorderHdg = class extends Heading {
                     'border-color' : color.getStyle()
                 });
             }
+        } catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+    
+    color (prm) {
+        try {
+            if (undefined === prm) {
+                /* getter */
+                return (undefined === this.m_bdrhdg_clr) ? new mf.Color(0,0,0) : this.m_bdrhdg_clr;
+            }
+            /* setter */
+            if (true !== mf.func.isInclude(prm, 'Color')) {
+                throw new Error('invalid parameter');
+            }
+            this.style({
+                'border-color' : prm.getStyle()
+            });
         } catch (e) {
             console.error(e.stack);
             throw e;
