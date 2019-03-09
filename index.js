@@ -1,14 +1,12 @@
 /**
- * @file   Heading.js
+ * @file   mofron-comp-borderhdg/index.js
+ * @brief border heading component
  * @author simpart
  */
-let mf = require('mofron');
-let Text = require('mofron-comp-text');
-let Heading = require('mofron-comp-heading');
-/**
- * @class BorderHdg
- * @brief border heading component 
- */
+const mf      = require('mofron');
+const Text    = require('mofron-comp-text');
+const Heading = require('mofron-comp-heading');
+
 mofron.comp.BorderHdg = class extends Heading {
     constructor (po) {
         try {
@@ -35,32 +33,10 @@ mofron.comp.BorderHdg = class extends Heading {
         }
     }
     
-    themeConts (thm) {
+    mainColor (prm) {
         try {
-            let color = thm.color(0);
-            if (null !== color) {
-                this.target().style({
-                    'border-color' : color.getStyle()
-                });
-            }
-        } catch (e) {
-            console.error(e.stack);
-            throw e;
-        }
-    }
-    
-    color (prm) {
-        try {
-            if (undefined === prm) {
-                /* getter */
-                return (undefined === this.m_bdrhdg_clr) ? new mf.Color(0,0,0) : this.m_bdrhdg_clr;
-            }
-            /* setter */
-            if (true !== mf.func.isInclude(prm, 'Color')) {
-                throw new Error('invalid parameter');
-            }
             this.style({
-                'border-color' : prm.getStyle()
+                'border-color' : mf.func.getColor(prm).toString()
             });
         } catch (e) {
             console.error(e.stack);
