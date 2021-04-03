@@ -9,12 +9,20 @@ const Heading = require('mofron-comp-heading');
 const comutl  = mofron.util.common;
 
 module.exports = class extends Heading {
-    constructor (p1) {
+    /**
+     * initialize component
+     *
+     * @param (mixed) text parameter
+     *                component config
+     * @param (number) level parameter
+     * @type private
+     */
+    constructor (p1,p2) {
         try {
             super();
             this.modname('BoderHdg');
 	    if (0 < arguments.length) {
-                this.config(p1);
+                this.config(p1,p2);
             }
         } catch (e) {
             console.error(e.stack);
@@ -22,6 +30,11 @@ module.exports = class extends Heading {
         }
     }
     
+    /**
+     * initialize dom contents
+     * 
+     * @type private
+     */
     initDomConts () {
         try {
             super.initDomConts();
@@ -36,11 +49,18 @@ module.exports = class extends Heading {
         }
     }
     
-    mainColor (prm) {
+    /**
+     * border color setter/getter
+     * 
+     * @param (mixed (color)) string: text color name, #hex
+     *                        array: [red, green, blue, (alpha)]
+     * @type parameter
+     */
+    mainColor (prm,opt) {
         try {
-            this.style({
-                'border-color' : comutl.getcolor(prm).toString()
-            });
+            this.style(
+	        { 'border-color' : comutl.getcolor(prm).toString() }, opt
+            );
         } catch (e) {
             console.error(e.stack);
             throw e;

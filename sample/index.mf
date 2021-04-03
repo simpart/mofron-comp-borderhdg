@@ -1,0 +1,5 @@
+<setting>
+    <tag load="mofron-comp-borderhdg">Heading</tag>
+</setting>
+
+<Heading color="#f0e6fa" level=2>Heading</Heading>
