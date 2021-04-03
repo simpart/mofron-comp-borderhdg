@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-borderhdg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "border heading component for mofron",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "front-end"
   ],
   "author": "simparts",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/simpart/mofron-comp-borderhdg/issues"
   },
